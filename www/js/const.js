@@ -1,6 +1,6 @@
 REGISTRATION = 'registration';
 // API_URL = 'http://api.maro.exdan.ru';
-API_URL = 'http://client.tr.exdan.ru';
+API_URL = 'http://api.ufatop.exdan.ru';
 // API_URL = 'http://apisim.exdan.ru';
 
 //API_URL = 'http://api.tk956.exdan.ru';
