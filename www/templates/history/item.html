@@ -1,0 +1,85 @@
+<ion-view view-title="{{ 'order' | translate }}" class="history-item">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-points">
+        <ul>
+          <li ng-show="history.from">
+            <i class="first"></i>{{ history.from }}
+            <div class="dots" ng-show="history.to">
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </li>
+          <li ng-show="history.to">
+            <i class="point"></i>{{ history.to }}
+          </li>
+        </ul>
+        <div class="row">
+          <div class="tariff col">{{ history.tariff.name }}</div>
+          <div class="total col col-33">{{ history.summary + ' ' + current }}</div>
+        </div>
+      </ion-item>
+      <ion-item class="item-driver" ng-show="history.driver.model">
+        <div class="text">
+          <div class="avatar">
+            <img src="./img/avatar.png">
+          </div>
+          <div class="top">
+            <span class="name">{{ history.driver.driver }}</span>
+            <i class="icon ion-android-star"></i>
+            <span class="rating">{{ history.rate }}</span>
+          </div>
+          <div class="auto">
+            {{ history.driver.model }}
+          </div>
+          <div>
+            {{ history.driver.number }}
+          </div>
+        </div>
+      </ion-item>
+
+      <ion-item class="item-driver" ng-if="history.state.id === 16">
+        <div class="text">
+          <div class="avatar">
+            <img src="./img/avatar.png">
+          </div>
+          <div class="top">
+            <span class="name">{{ history.select_driver.driver }}</span>
+            <i class="icon ion-android-star"></i>
+            <span class="rating">{{ history.rate }}</span>
+          </div>
+          <div class="auto">
+            {{ history.select_driver.model }}
+          </div>
+          <div>
+            {{ history.select_driver.number }}
+          </div>
+        </div>
+      </ion-item>
+
+      <ion-item class="item-services" ng-show="history.extend.length !== 0">
+        <div class="title">{{ 'additional_services' | translate }}</div>
+        <ul>
+          <li ng-repeat="service in history.services">
+            <i class="icon ion-ios-checkmark-outline"></i>
+            {{ service.name }}
+          </li>
+        </ul>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="row">
+      <div class="col" ng-show="history.state.terminal === 3 && history.rate === null">
+        <button style="width: 100%; height: 48px; display: block;" class="button button-submit" ng-click="goRating()">{{ 'estimate' | translate }}</button>
+      </div>
+      <div class="col">
+        <button style="width: 100%; height: 48px; display: block; background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-submit" ng-click="goMap()" ng-hide="history.state.id === 8 || history.state.id === 10 || history.state.id === 14">{{ 'map' | translate }}</button>
+        <button style="width: 100%; height: 48px; display: block; background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-submit" ng-click="repeat()" ng-show="history.state.id === 8 || history.state.id === 10 || history.state.id === 14">{{ 'repeat' | translate }}</button>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

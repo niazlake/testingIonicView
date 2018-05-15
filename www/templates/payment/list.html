@@ -1,0 +1,19 @@
+<ion-view view-title="{{ 'payment_methods' | translate }}" class="favorite">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="item in list" class="item-icon-left item-icon-right" ng-show="item.state == 1">
+        <div ng-click="selectPayment(item)">
+          <i class="icon ion-card"></i>
+          <p class="name">{{ item.mask }}</p>
+        </div>
+        <i class="icon ion-ios-minus-outline" ng-click="removePayment(item.id)"></i>
+      </ion-item>
+    </ion-list>
+    <!-- <div class="center">
+      <a class="button button-icon icon ion-ios-plus" ng-click="addPayment()"></a>
+    </div> -->
+  </ion-content>
+</ion-view>

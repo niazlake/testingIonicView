@@ -1,0 +1,68 @@
+<ion-view view-title="{{(index == 0) && ('where_take' | translate) || ('where_pickup' | translate)}}" class="point">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <form class="point-form">
+      <div class="row" ng-show="visible.name">
+        <div class="col list">
+          <ion-item class="item item-input">
+            <input
+              type="text"
+              ng-model="form.favorite_name"
+              placeholder="{{ 'title' | translate }}">
+          </ion-item>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="list col">
+          <div class="item input-face" ng-click="goSearch()">
+            <span class="value" ng-hide="form.street == null">{{ form.street }}</span>
+            <span class="placeholder" ng-show="form.street == null">{{ 'address' | translate }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" ng-hide="form.view_address">
+        <div class="col col-25 list" ng-show="visible.house">
+          <ion-item class="item item-input">
+            <input
+              ng-change="clearLatLng()"
+              type="text"
+              ng-model="form.house"
+              placeholder="{{ 'house' | translate }}">
+          </ion-item>
+        </div>
+        <div class="col list">
+          <ion-item class="item item-input">
+            <input
+              type="text"
+              ng-model="form.entrance"
+              placeholder="{{ 'entrance' | translate }}">
+          </ion-item>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="list col">
+          <ion-item class="item item-input">
+            <input
+              type="text"
+              ng-model="form.comment"
+              placeholder="{{ 'leave_comment' | translate }}"/>
+          </ion-item>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="list col">
+          <button style="background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-block button-submit" ng-click="saveData();">
+            {{ 'confirm' | translate }}
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </ion-content>
+</ion-view>

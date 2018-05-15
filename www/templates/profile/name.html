@@ -1,0 +1,24 @@
+<ion-view view-title="{{ 'viewing_profile' | translate }}" class="profile-edit">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="list">
+      <div class="item">
+        <input 
+          type="text" 
+          name="name" 
+          ng-model="form.name"
+          placeholder="{{ 'enter_new_name' | translate }}"
+          required>
+      </div>
+      <div class="item item-button">
+        <button class="button button-block button-submit" ng-click="save()">
+          {{ 'save' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+
+</ion-view>

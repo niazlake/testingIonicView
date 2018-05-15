@@ -1,0 +1,32 @@
+<ion-view hide-nav-bar="true" class="auth">
+  <ion-content>
+    <div class="logo">
+      <img src="img/logo.png" style=" margin-top: 15%; width: 200px">
+      <!--<h5 class="description" style="font-size: 18px;">№1 cargo service in Sri Lanka</h5>-->
+    </div>
+    <form name="loginForm" novalidate>
+      <div class="list list-auth">
+        <label class="item item-label">{{ 'enter_code' | translate }}</label>
+        <label class="item item-input">
+          <input
+            type="password"
+            name="code"
+            ng-model="code"
+            ui-mask-placeholder
+            required>
+        </label>
+      </div>
+      <button style="visibility: hidden; display: block; height: 1px;margin-top:-15px;" ng-click="confirmPhone(code)">hide</button>
+      </form>
+    <div class="padding-button">
+      <button class="button button-block button-submit" style="background: linear-gradient(to top, #222e63, #222e63, #222e63);" ng-click="confirmPhone(code)">
+        {{ 'come_in' | translate }}
+      </button>
+    </div>
+    <!-- <div ng-show="offer.show" style="text-align: center; padding: 0px 50px;">
+      <span>{{'login_agree' | translate}} </span> -->
+      <!-- <span style="text-decoration: none; color: blue;" ng-click="openOffer();">{{'offer_contracts' | translate}}</span> -->
+      <!-- <span>{{'offer_contracts' | translate}}</span> -->
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<ion-view view-title="{{ 'help' | translate }}" class="help">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ul>
+      <li ng-repeat="item in items" ng-click="toggle($index)" ng-class="{ active: !item.active }">
+        <span class="question"> {{ item.question }}</span>
+        <span class="answer" ng-bind-html="item.answer"></span>
+        <!--
+        <div class="question"> {{ item.question }} </div>
+        <div class="answer"> {{ item.answer }} </div>
+        -->
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>

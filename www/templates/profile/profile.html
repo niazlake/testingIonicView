@@ -1,0 +1,28 @@
+<ion-view view-title="{{ 'viewing_profile' | translate }}" class="profile">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ul>
+      <li>
+        <div>{{ data.name }}</div>
+        <div class="wrap-button" ui-sref="menu.profile-name">
+          <button><i class="ion-edit"></i></button>
+        </div>
+      </li>
+      <li>
+        <div>{{ '+7' + data.phone }}</div>
+      </li>
+    </ul>
+    <label class="item item-input item-select">
+      <div class="input-label">
+        {{'selected_lang' | translate}}
+      </div>
+      <select ng-model="lang" ng-change="setLanguage(lang)">
+        <option value="ru">{{'russian_lang' | translate}}</option>
+        <option value="en">{{'english_lang' | translate}}</option>
+        <!-- <option value="gr">{{'greek_lang' | translate}}</option> -->
+      </select>
+    </label>
+  </ion-content>
+</ion-view>

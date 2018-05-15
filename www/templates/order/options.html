@@ -1,0 +1,19 @@
+<ion-view class="review">
+  <ion-nav-title> {{ title }} </ion-nav-title>
+  <ion-content>
+    <ion-list>
+      <div class="time" ng-if="type === 'time'">
+        <ion-item ng-repeat="option in options[type]" ng-click="setOption(option, $index)">
+          <i class="{{icon}}"></i>
+          {{option.name}}
+        </ion-item>
+      </div>
+
+      <ion-item ng-if="type === 'class' || type === 'payment'" ng-click="setOption(options[type], $index)">
+        <i ng-if="type === 'class'" style="background-image: url({{ options[type].icon }})"></i>
+        <i ng-if="options[type].icon && type === 'payment'" class="{{options[type].icon}}"></i>
+        {{options[type].name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

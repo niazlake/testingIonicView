@@ -1,0 +1,50 @@
+<ion-view view-title="{{ 'history_orders' | translate }}" class="history">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <div class="item item-divider" ng-hide="currentHistory.length === 0">
+        {{ 'current_orders' | translate }}
+      </div>
+      <ion-item ng-repeat="item in currentHistory">
+        <div class="row"  ng-click="goItem(item.id)">
+          <div class="col col-67 addresses">
+            <div>{{ item.from }}</div>
+            <div>{{ item.to }}</div>
+          </div>
+          <div class="col total">{{ item.summary + ' ' + current }}</div>
+        </div>
+        <div class="row">
+          <div class="col col-50 date" ng-click="goItem(item.id)">{{ item.date }}</div>
+          <div class="col rate">
+            <stars ng-click="goItem(item.id)" rate="item.rate" ng-show="item.rate !== null && item.state.terminal !== 3"></stars>
+            <button ng-click="goRating(item.id)" ng-show="item.rate === null && item.state.terminal === 3" class="button button-positive button-small button-outline button-rate">{{ 'estimate' | translate }}</button>
+          </div>
+        </div>
+      </ion-item>
+      <div class="item item-divider" ng-hide="pastHistory.length === 0">
+        {{ 'past_orders' | translate }}
+      </div>
+      <ion-item ng-repeat="item in pastHistory">
+        <div class="row"  ng-click="goItem(item.id)">
+          <div class="col col-67 addresses">
+            <div>{{ item.from }}</div>
+            <div>{{ item.to }}</div>
+          </div>
+          <div class="col total">{{ item.summary + ' ' + current }}</div>
+        </div>
+        <div class="row">
+          <div class="col col-50 date" ng-click="goItem(item.id)">{{ item.date }}</div>
+          <div class="col rate">
+            <stars ng-click="goItem(item.id)" rate="item.rate" ng-show="item.rate !== null && item.state.terminal !== 3"></stars>
+            <button ng-click="goRating(item.id)" ng-show="item.rate === null && item.state.terminal === 3" class="button button-positive button-small button-outline button-rate">{{ 'estimate' | translate }}</button>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar class="opacity">
+    <button style="width: 100%; display: block; background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-submit" ng-click="clear()">{{ 'clear_history' | translate }}</button>
+  </ion-footer-bar>
+</ion-view>

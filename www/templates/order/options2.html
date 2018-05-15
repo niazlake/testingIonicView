@@ -1,0 +1,28 @@
+<ion-view view-title="{{ 'rate' | translate }}" class="review">
+  <ion-content>
+    <ion-list ng-show="type === 'class'">
+        <div class="list card"
+              ng-repeat="option in options"
+              ng-click="setOption(option, $index)"
+              style="margin:0;">
+          <div class="item item-text-wrap">
+            <i ng-if="option.icon && !type" style="background-image: url({{ option.icon }})"></i>
+            <i ng-if="!option.icon && !type" class="icon-default"></i>
+            <i ng-if="!option.icon && type" class="{{'icon-'+type+'-'+$index}}"></i>
+            {{option.name}}
+          </div>
+          <div class="item item-image">
+           <img src="img/kabluk.png">
+         </div>
+        </div>
+    </ion-list>
+    <ion-list ng-hide="type === 'class'">
+        <ion-item ng-repeat="option in options" ng-click="setOption(option, $index)">
+          <i ng-if="option.icon && !type" style="background-image: url({{ option.icon }})"></i>
+          <i ng-if="!option.icon && !type" class="icon-default"></i>
+          <i ng-if="!option.icon && type" class="{{'icon-'+type+'-'+$index}}"></i>
+          {{option.name}}
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>

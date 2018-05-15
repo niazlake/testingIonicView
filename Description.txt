@@ -1,0 +1,10 @@
+IAUTO
+keystore: iauto.jks
+-alias: iauto
+keystore password: taxiiauto
+
+T&R
+
+keystore: transR.jks
+-alias: transR
+keystore password: transR 

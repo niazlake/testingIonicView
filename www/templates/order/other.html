@@ -1,0 +1,16 @@
+<ion-view view-title="{{ 'additional_services' | translate }}" class="other">
+  <ion-content>
+    <div class="list">
+      <ion-toggle
+        toggle-class="toggle-positive"
+        ng-repeat="item in otherList"
+        ng-model="item.checked"
+        ng-checked="item.checked">
+        <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{ item.name }} ({{ +item.value.toFixed(1)}}{{ current}})</div>
+      </ion-toggle>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <button style="width: 100%; display: block;color:white; background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-submit" ng-click="setOther()">{{ 'save' | translate }}</button>
+  </ion-footer-bar>
+</ion-view>

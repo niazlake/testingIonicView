@@ -1,0 +1,27 @@
+<ion-view view-title="{{ 'viewing_profile' | translate }}" class="profile-edit">
+
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="list">
+      <div class="item">
+        <input
+          type="tel"
+          name="phone"
+          ng-model="phone"
+          ui-mask="+7 999 999 99 99"
+          ui-mask-placeholder
+          placeholder="{{ 'enter_new_number' | translate }}"
+          required>
+      </div>
+      <div class="item item-button">
+        <button style="background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-block button-submit" ng-click="save()">
+          {{ 'save' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+
+</ion-view>

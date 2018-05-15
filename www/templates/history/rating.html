@@ -1,0 +1,55 @@
+<ion-view view-title="{{ 'order' | translate }}" class="history-item">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-points">
+        <ul>
+          <li ng-repeat="point in history.points">
+            <i ng-class="{first: $first && (history.points.length - 1) !== $index, point: (history.points.length - 1) === $index}"></i>
+            {{ point.address }}
+          </li>
+        </ul>
+        <div class="row">
+          <div class="tariff col">{{ history.tariff.name }}</div>
+          <div class="total col col-33">{{ history.summary + ' ' + current }}</div>
+        </div>
+      </ion-item>
+      <ion-item class="item-driver">
+        <div class="text">
+          <div class="avatar">
+            <img src="./img/avatar.png">
+          </div>
+          <div class="top">
+            <span class="name">{{ history.driver.name }}</span>
+            <i class="icon ion-android-star"></i>
+            <span class="rating">{{ history.rate }}</span>
+          </div>
+          <div class="auto">
+            {{ history.driver.model }}
+          </div>
+          <div>
+            {{ history.driver.number }}
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="item-rating">
+        <div class="row">
+          <div class="col">
+            <div class="value"> {{ statusName }}</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <ionic-ratings ratingsobj='rating' index='0'></ionic-ratings>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="item-comment">
+        <textarea ng-model="form.comment" placeholder="{{ 'leave_comment' | translate }}" rows="3"></textarea>
+        <button style="background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-block button-submit" ng-click="setRating()">{{ 'submit' | translate }}</button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

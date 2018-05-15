@@ -1,0 +1,53 @@
+<ion-view class="search" view-title="{{ 'address_search' | translate }}">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <div class="bar bar-subheader">
+    <div class="col col-search">
+      <div class="item item-input item-search">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="{{ 'search' | translate }}" name="address.title" ng-model="address.title" ng-change="getAddress(address.title)" ng-model-options="{ debounce: 500 }" focus-me id="inputSearch">
+        <i class="icon ion-close-round" ng-show="address.title.length > 0" ng-click="clearSearch()"></i>
+      </div>
+    </div>
+    <div class="col col-20" ng-show="showButton">
+      <button class="button icon ion-checkmark" ng-click="setAddress()"></button>
+    </div>
+  </div>
+
+  <ion-content>
+    <ion-list class="addresses">
+      <ion-item class="item-icon-left" ng-repeat="item in items" ng-click="selectAddress(item, false)">
+        <i class="icon ion-ios-location-outline"></i>
+        <span ng-bind-html="item.name | highlight:address.title"></span> 
+        <p ng-bind-html="item.description | highlight:address.title" ng-show="item.description"></p>
+        <p ng-show="item.description === null">{{ item.city }}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list ng-show="(items.length === 0)">
+      <ion-item ng-show="visible.geo" class="item item-icon-left" ng-click="goMap()">
+        <i class="icon ion-ios-location"></i>
+        {{ 'specify_point' | translate }}
+      </ion-item>
+      <ion-item ng-show="visible.favorite" class="item item-icon-left" ng-click="goFavorite()">
+        <i class="icon ion-heart"></i>
+        {{ 'favorite_addresses' | translate }}
+      </ion-item>
+    </ion-list>
+
+    <ion-list ng-show="( (visible.history) && (items.length == 0) && (histories.length != 0) )">
+      <ion-item class="item history">
+        {{ 'history' | translate }}
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="addresses" ng-show="( (visible.history) && (items.length == 0) && (histories.length != 0) )">
+      <ion-item class="item-icon-left" ng-repeat="history in histories.slice().reverse() track by $index" ng-click="selectAddress(history, true)">
+        <i class="icon ion-ios-location-outline"></i>
+        <span>{{ history.name }}</span> 
+        <p>{{ history.city }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

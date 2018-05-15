@@ -1,0 +1,39 @@
+<ion-view title="{{ 'order' | translate }}" class="order">
+
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon" ng-click="toggle()"></button>
+  </ion-nav-buttons>
+
+  <ion-content scroll="false">
+    <div id="map-order">
+      <div class="form" style="z-index: 999999999">
+        <div class="list">
+          <div class="item" ng-repeat="point in points">
+            <div class="dots" ng-show="!$last">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <i class="icon-point"></i>
+            <div class="input" ng-click="goPoint(point.address === null, {index: $index, point: point})">
+              <span ng-show="point.street">{{ point.street }}</span>
+              <span ng-show="point.house">{{ point.house }}</span>
+              <span ng-show="!point.name">
+                <span ng-show="$index === 0">{{ 'whence' | translate }}</span>
+                <span ng-show="$index !== 0 && !$last">{{ 'where' | translate }}</span>
+                <span ng-show="$last">{{ 'stop_at' | translate }}</span>
+            </div>
+            <i class="icon ion-close-circled placeholder-icon icon-close" ng-click="removePoint($index)" ng-show="$index > 0 && points.length > 2"></i>
+          </div>
+        </div>
+        <div class="add-block" ng-show="points.length < 4">
+          <i style="color: #0c60ee" class="button button-icon icon ion-plus-circled" ng-click="addPoint()"></i>
+        </div>
+      </div>
+      <i class="icon ion-android-locate" style="z-index: 999999999" ng-click="getAddressByGps()"></i>
+      <ion-footer-bar>
+        <button style="width: 100%; display: block;color:white; background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-submit" ng-click="goReview()">{{ 'calculate' | translate }}</button>
+      </ion-footer-bar>
+    </div>
+  <ion-content>
+</ion-view>

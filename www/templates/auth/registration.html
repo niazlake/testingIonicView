@@ -1,0 +1,54 @@
+<ion-view hide-nav-bar="true" class="auth">
+  <ion-content>
+
+    <!-- <div style="margin-top:10%;margin-left:70%;">
+      <ul style="list-style-type: none;cursor:pointer;">
+        <li style="display: inline;" ng-click="selectInitLang('en')">EN</li> /
+        <li style="display: inline;" ng-click="selectInitLang('ru')">RU</li> /
+        <li style="display: inline;" ng-click="selectInitLang('gr')">GR</li>
+      </ul>
+    </div> -->
+
+
+    <div class="logo">
+      <img src="img/logo.png" style="margin-top: 15%; width: 200px">
+      <!--<h5 class="description" style="font-size: 18px;">№1 cargo service in Sri Lanka</h5>-->
+    </div>
+    <form name="loginForm" novalidate>
+      <div class="list list-auth">
+        <label class="item item-label" ng-show="showName">{{ 'enter_name' | translate }}</label>
+        <label class="item item-input" ng-show="showName">
+          <input
+            type="text"
+            name="name"
+            ng-model="name"
+            required>
+        </label>
+        <label class="item item-label">{{ 'enter_phone' | translate }}</label>
+        <label class="item item-input">
+          <i class="icon ion-ios-telephone-outline"></i>
+          <input
+            type="tel"
+            name="phone"
+            ng-model="phone"
+            ui-mask="+7 999 999 99 99"
+            required>
+        </label>
+      </div>
+
+      <button style="visibility: hidden; display: block; height: 1px; margin-top: 5%" ng-click="registration(phone, name)">hide</button>
+    </form>
+
+    <!--<div class="padding-button" ng-show="showFB">-->
+      <!--<button class="button button-block button-submit" style="background: linear-gradient(to top, #5c72a3, #5c72a3, #5c72a3);" ng-click="loginFromFacebook()">-->
+        <!--{{'facebook' | translate}}-->
+      <!--</button>-->
+    <!--</div>-->
+
+    <div class="padding-button">
+      <button class="button button-block button-submit" style="background: linear-gradient(to top, #222e63, #222e63, #222e63);" ng-click="registration(phone, name)">
+        {{ 'get_code' | translate }}
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

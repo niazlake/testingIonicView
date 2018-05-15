@@ -1,0 +1,50 @@
+<ion-side-menus>
+
+  <ion-pane ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar-energized">
+      <ion-nav-back-button class="button-clear"><i class="icon ion-chevron-left"></i></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-pane>
+
+  <ion-side-menu side="right" id="side-menu">
+    <ion-content class="menu">
+      <header>
+        <img src="./img/logo.png" style="height: 80px;" alt="">
+      </header>
+      <ion-list>
+        <ion-item class="item-icon-left" nav-clear menu-close ng-click="goToOrder()">
+          <i class="icon ion-model-s"></i>
+          {{ 'order_taxi' | translate }}
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/menu/history">
+          <i class="icon ion-ios-clock-outline"></i>
+          {{ 'history_orders' | translate }}
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/menu/favorite">
+          <i class="icon ion-ios-heart"></i>
+          {{ 'favorite_addresses' | translate }}
+        </ion-item>
+        <!--<ion-item ng-show="showPayment" class="item-icon-left" nav-clear menu-close href="#/menu/payment">-->
+          <!--<i class="icon ion-card"></i>-->
+          <!--{{ 'payment_methods' | translate }}-->
+        <!--</ion-item>-->
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/menu/profile">
+          <i class="icon ion-person"></i>
+          {{ 'viewing_profile' | translate }}
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/menu/help">
+          <i class="icon ion-help-circled"></i>
+          {{ 'help' | translate }}
+        </ion-item>
+      </ion-list>
+      <footer class="list">
+        <ion-item class="item-icon-left" ng-click="exitApp()">
+          <i class="icon ion-reply"></i>
+          {{ 'exit' | translate }}
+        </ion-item>
+      </footer>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>

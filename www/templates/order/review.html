@@ -1,0 +1,57 @@
+<ion-view view-title="{{ 'order_summary' | translate }}" class="review">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-points">
+        <ul>
+          <li ng-repeat="point in points">
+            <i ng-class="{first: $first && (points.length - 1) !== $index, point: (points.length - 1) === $index}"></i>
+            <div class="address">
+              <span ng-show="point.street">{{ point.street }}</span>
+              <span ng-show="point.house">{{ point.house }}</span>
+            </div>
+          </li>
+        </ul>
+      </ion-item>
+      <ion-item ng-click="link('menu.order-review-class')">
+        <!--
+        <i class="{{options.class.icon}}"></i>
+        -->
+        <i style="background-image: url({{ options.class.icon }})"></i>
+        {{ options.class.name }}
+      </ion-item>
+
+      <ion-item ng-show="showTariff" ng-click="link('menu.order-review-tariff')">
+        <i class="{{options.tariff.icon}}"></i>
+        {{ options.tariff.name }}
+      </ion-item>
+
+      <ion-item ng-click="link('menu.order-review-time')">
+        <i class="{{options.time.icon}}"></i>
+        {{ options.time.name }}
+      </ion-item>
+      <ion-item ng-show="showPayment" ng-click="link('menu.order-review-payment')">
+        <i class="{{options.payment.icon}}"></i>
+        {{ options.payment.name }}
+      </ion-item>
+      <ion-item ng-show="isOther" ng-click="link('menu.order-review-other')">
+        <i class="icon-other"></i>
+        {{ 'additional_services' | translate }}
+      </ion-item>
+    </ion-list>
+    <div class="label-total">{{ 'preliminary_cost' | translate }}</div>
+    <div class="total">
+      {{ total }}
+    </div>
+    <div ng-show="isOfferPrice && points.length > 1" padding>
+      <button class="button button-submit button-block" ng-click="switchShowPrice()">{{ 'suggest_price' | translate }}</button>
+      <div ng-show="showOfferPrice" class="list">
+        <label class="item item-input">
+          <input type="tel" ng-model="form.offerPrice" placeholder="0 {{ current }}">
+        </label>
+      </div>
+    </div>
+    <div padding>
+      <button style="background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-submit button-block" ng-click="createOrder()">{{ 'to_order' | translate }}</button>
+    </div>
+  </ion-content>
+</ion-view>

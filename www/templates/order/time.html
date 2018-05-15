@@ -1,0 +1,21 @@
+<ion-view view-title="Тариф" class="time">
+  <ion-content>
+    <div class="row">
+      <div class="col list">
+        <div class="label">{{ 'date' | translate }}</div>
+        <a class="item input-face" ng-click="showDate()">
+          {{date}}
+        </a>
+      </div>
+      <div class="col list">
+        <div class="label">{{ 'time' | translate }}</div>
+        <a class="item input-face" ng-click="showTime()">
+          {{time}}
+        </a>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <button style="width: 100%; display: block; background: linear-gradient(to top, #222e63, #222e63, #222e63);" class="button button-submit" ng-click="setDate()">{{ 'save' | translate }}</button>
+  </ion-footer-bar>
+</ion-view>

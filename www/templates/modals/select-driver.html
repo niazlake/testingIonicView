@@ -1,0 +1,20 @@
+<ion-modal-view>
+
+  <ion-header-bar class="bar bar-dark">
+    <button class="button button-clear icon ion-ios-arrow-back route-button" ng-click="close()"></button>
+    <h1 class="title">Выбор водителя</h1>
+  </ion-header-bar>
+
+  <ion-content class="history-map">
+
+    <ion-list>
+      <ion-item ng-repeat="driver in history.free_drivers">
+        <button class="button button-block" on-tap="cancelDriver(driver)">Отказать</button>
+      
+        <button class="button button-block" on-tap="selectDriver(driver)">Соглосовать</button>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+</ion-modal-view>
